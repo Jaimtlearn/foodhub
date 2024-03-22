@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./templates/*"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'gradient-pattern' : "url('/static/images/others/gradient.webp')",
+      }
+    },
   },
   plugins: [],
 }

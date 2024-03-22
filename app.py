@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from forms import SignUpForm, LogInForm
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'c2ef5ceadc6fac9ebf18423903ba4816'
 
 @app.route('/')
 def Home():
