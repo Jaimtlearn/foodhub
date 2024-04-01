@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../static/css/output.css">
+</head>
+<body class="flex flex-col min-h-screen">
+    <!-- NavBar -->
+    <header class="top-0 z-10 sticky md:flex md:justify-between bg-slate-100 drop-shadow-lg px-4 py-2 text-black-600 body-font filter">
+        <div class="flex justify-between text-center">
+            <div>
+                <a class="flex items-center mb-4 md:mb-0 sm:px-4 sm:py-2 font-medium text-gray-900 title-font">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="bg-orange-500 p-2 rounded-full w-10 h-10 text-black" viewBox="0 0 24 24">
+                    <path d="M12 2C8.6 2 6 4.6 6 8c0 2.4 1.8 4.4 4 4.7V18c0 1.1.9 2 2 2h0c1.1 0 2-.9 2-2v-3.3c2.2-.3 4-2.3 4-4.7 0-3.4-2.6-6-6-6zM12 16c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z"></path>
+                    </svg>
+                    <span class="ml-3 text-xl">FoodHub</span>
+                </a>
+            </div>
+            <div class="md:hidden">
+                <button type="button" class="block text-orange-500 hover:text-orange-600 focus:text-gray-500 hamburger-icon focus:outline-none">
+                    <svg class="w-12 h-12 fill-current" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" class="open-icon" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
+                        <path fill-rule="evenodd" class="hidden close-icon" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"/>
+                    </svg>
+                </button>
+            </div>
+        </div class="md:flex md:justify-between items-center">
+        <div class="md:block hidden px-4 py-2 text-center nav-list">
+            <a href="/" class="block md:inline-block md:hover:bg-slate-100 hover:bg-slate-200 p-2 rounded font-medium hover:text-blue-500">Home</a>
+            <a href="" class="block md:inline-block md:hover:bg-slate-100 hover:bg-slate-200 mt-2 md:mt-0 md:ml-3 p-2 rounded font-medium hover:text-blue-500">About</a>
+            <a href="" class="block md:inline-block md:hover:bg-slate-100 hover:bg-slate-200 mt-2 md:mt-0 md:ml-3 p-2 rounded font-medium hover:text-blue-500">Pricing</a>
+            <a href="" class="block md:inline-block md:hover:bg-slate-100 hover:bg-slate-200 mt-2 md:mt-0 md:ml-3 p-2 rounded font-medium hover:text-blue-500">Contact</a>
+            <a href="" class="block md:inline-block md:hover:bg-slate-100 hover:bg-slate-200 mt-2 md:mt-0 md:ml-3 p-2 rounded font-medium md:hover:text-green-500 hover:text-blue-500">Login</a>
+            <a href="/signup" class="block md:inline-block md:hover:bg-slate-100 hover:bg-slate-200 mt-2 md:mt-0 md:ml-3 p-2 rounded font-medium md:hover:text-green-500 hover:text-blue-500">SignUp</a>
+        </div>
+    </header>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flex justify-center items-center bg-green-300 mt-4 rounded-lg w-3/5 h-10 font-semibold self-center">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+
+      <!-- Footer -->
+      <footer class="bg-gray-800 mt-auto text-gray-600 body-font">
+        <div class="flex sm:flex-row flex-col items-center mx-auto px-5 py-8 container">
+          <a class="flex justify-center md:justify-start items-center font-medium text-gray-900 title-font">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="bg-indigo-500 mx-4 p-2 rounded-full w-10 h-10 text-white" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="bg-indigo-500 mx-4 p-2 rounded-full w-10 h-10 text-white" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="bg-indigo-500 mx-4 p-2 rounded-full w-10 h-10 text-white" viewBox="0 0 24 24">
+                <rect width="20" height="20" x="2" y="2" rx="8" ry="8"></rect>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="bg-indigo-500 mx-4 p-1 rounded-full w-10 h-10 text-white" viewBox="-2 -2 28 28">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <p class="sm:border-gray-200 mt-4 sm:mt-0 sm:ml-4 sm:py-2 sm:pl-4 sm:border-l-2 font-semibold text-sm text-white">© 2022 FoodHub —
+            <a href="https://www.linkedin.com/in/jaimit2002" class="mt-4 font-semibold text-sm text-white" rel="noopener noreferrer" target="_blank">@jaimit2002</a>
+          </p>
+        </div>
+      </footer>
+
+</body>
+<script>
+    let hamburger = document.querySelector(".hamburger-icon").addEventListener("click",()=>{
+        if (document.querySelector(".nav-list").classList.contains("hidden")){
+            document.querySelector(".nav-list").classList.remove("hidden")
+            document.querySelector(".open-icon").classList.add("hidden")
+            document.querySelector(".close-icon").classList.remove("hidden")
+        }
+        else{
+            document.querySelector(".nav-list").classList.add("hidden")
+            document.querySelector(".open-icon").classList.remove("hidden")
+            document.querySelector(".close-icon").classList.add("hidden")
+        }
+    })
+</script>
+</html>

@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'gradient-pattern' : "url('/static/images/others/gradient.webp')",
+        'gradient': "url('/static/images/others/blue-gradient.webp')"
       }
     },
   },

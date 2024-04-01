@@ -1,0 +1,6 @@
+Flask
+Flask-WTF
+pymongo
+python-dotenv
+bcrypt~=3.2.2
+Flask-Bcrypt
