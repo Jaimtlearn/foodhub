@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./templates/*"],
+  content: ["./foodhub/templates/*"],
   theme: {
     extend: {
       backgroundImage: {
